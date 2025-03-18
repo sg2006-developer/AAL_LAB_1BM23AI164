@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int sort(int array[], int length) {
+    int i, j, min, temp;
+
+    for (i = 0; i < length; i++) {
+        min = i;
+        for (j = i + 1; j < length; j++) {
+            if (array[j] < array[min]) {
+                min = j;
+            }
+        }
+        temp = array[min];
+        array[min] = array[i];
+        array[i] = temp;
+    }
+    return 0;
+}
+
+int main(int argc, char *argv[]) {
+    int length_of_a,i;
+    int a[] = {5, 3, 2, 1};
+    
+    length_of_a = sizeof(a) / sizeof(a[0]);
+    printf("Array length: %d\n", length_of_a);
+
+    sort(a, length_of_a);
+
+    printf("Sorted array: ");
+    for (i = 0; i < length_of_a; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
