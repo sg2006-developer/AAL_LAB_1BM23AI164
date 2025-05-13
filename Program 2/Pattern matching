@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	int size_of_S,size_of_P,check,pos,i,j;
+	char s[] = "Nobody noticed him";
+
+	char p[] = "him";
+	
+	size_of_S = strlen(s);
+	size_of_P = strlen(p);
+	
+	for(i=0;i<=size_of_S - size_of_P +1;i++){
+		for(j=0;j<size_of_P;j++){
+			if(s[i+j]==p[j]){
+				check=1;
+			}
+			else{
+				check=0;
+				break;
+			}
+		}
+		if(check==1){
+			pos = i;
+			break;
+		}
+		else{
+			pos = -1;
+		}
+	}
+	printf("Position is %d",pos);
+	
+	return 0;
+}
+
+Output:
+Position is 15
